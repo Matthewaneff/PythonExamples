@@ -14,7 +14,7 @@ def Raster2Array(rasterImage):
 
 	# Isolate a raster band and convert it to a NumPy array
 	band = rasterImage.GetRasterBand(1)
-	band = np.array(band.ReadAsArray())
+	rArray = np.array(band.ReadAsArray())
 
 	# Reclasssify the array into two classes
 	rArray[rArray < 254] = 1
