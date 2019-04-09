@@ -71,15 +71,15 @@ for i in domains:
 survey_features = ["Point", "Polyline", "Polygon"]
 
 # Define primary datasets
-us_state_complete = r"\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\UnitedStates\Census_2013\tl_2013_us_state\tl_2013_us_state.shp"
-if os.path.exists(us_state_complete) == True:
+us_state_complete = GetParameterAsText(4)
+if us_state_complete:
 	management.MakeFeatureLayer(us_state_complete, "US_State_Complete")
 else:
 	AddError('State Dataset Cannot Be Located')
 	sys.exit()
 
-us_county_complete = r"\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\UnitedStates\Census_2013\tl_2013_us_county\tl_2013_us_county.shp"
-if os.path.exists(us_county_complete) == True:
+us_county_complete = GetParameterAsText(5)
+if us_county_complete:
 	management.MakeFeatureLayer(us_county_complete, "US_County_Complete")
 else:
 	AddError('County Dataset Cannot Be Located')
