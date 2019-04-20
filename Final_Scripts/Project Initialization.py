@@ -45,23 +45,23 @@ AddMessage(" ")
 
 # Define Domain Files
 domains = [
-r'\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\ArchPot.txt',
-r'\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\ShovProb.txt',
-r'\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\SurfaceVis.txt',
-r'\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\YesNo.txt',
-r'\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\CardinalDir.txt',
-r'\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\FeaturePoint.txt',
-r'\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\FeaturePolygon.txt',
-r'\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\FeatureLine.txt',
-r'\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\HistoricArtifact.txt',
-r'\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\PrehistoricArtifact.txt',
-r'\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\Affiliation.txt',
-r'\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\SiteType.txt',
-r'\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\IsoType.txt',
-r'\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\LandClass.txt',
-r'\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\STP_Status.txt',
-r'\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\STP_Result.txt',
-r'\\tts153fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\SurveyStatus.txt',
+r'\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\ArchPot.txt',
+r'\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\ShovProb.txt',
+r'\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\SurfaceVis.txt',
+r'\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\YesNo.txt',
+r'\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\CardinalDir.txt',
+r'\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\FeaturePoint.txt',
+r'\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\FeaturePolygon.txt',
+r'\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\FeatureLine.txt',
+r'\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\HistoricArtifact.txt',
+r'\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\PrehistoricArtifact.txt',
+r'\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\Affiliation.txt',
+r'\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\SiteType.txt',
+r'\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\IsoType.txt',
+r'\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\LandClass.txt',
+r'\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\STP_Status.txt',
+r'\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\STP_Result.txt',
+r'\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\Tools\Domains\SurveyStatus.txt',
 ]
 
 for i in domains:
@@ -71,15 +71,15 @@ for i in domains:
 survey_features = ["Point", "Polyline", "Polygon"]
 
 # Define primary datasets
-us_state_complete = GetParameterAsText(4)
-if us_state_complete:
+us_state_complete = r"\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\UnitedStates\Census_2013\tl_2013_us_state\tl_2013_us_state.shp"
+if os.path.exists(us_state_complete) == True:
 	management.MakeFeatureLayer(us_state_complete, "US_State_Complete")
 else:
 	AddError('State Dataset Cannot Be Located')
 	sys.exit()
 
-us_county_complete = GetParameterAsText(5)
-if us_county_complete:
+us_county_complete = r"\\tts232fs1.TT.LOCAL\GROUPS\Cultural Resources\GIS_Library\UnitedStates\Census_2013\tl_2013_us_county\tl_2013_us_county.shp"
+if os.path.exists(us_county_complete) == True:
 	management.MakeFeatureLayer(us_county_complete, "US_County_Complete")
 else:
 	AddError('County Dataset Cannot Be Located')
